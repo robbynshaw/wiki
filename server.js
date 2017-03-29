@@ -63,7 +63,21 @@ const session = require('express-session')
 const SessionMongoStore = require('connect-mongo')(session)
 const socketio = require('socket.io')
 
-var mw = autoload(CORE_PATH + '/core-middlewares')
+// ----------------------------------------
+// Set some defaults
+// ----------------------------------------
+
+appconfig.baseurl = appconfig.baseUrl || ''
+
+// ----------------------------------------
+// Load internal modules
+// ----------------------------------------
+
+var mw = {
+  auth: require('./middlewares/auth.js')(appconfig),
+  flash: require('./middlewares/flash.js'),
+  security: require('./middlewares/security.js')
+}
 var ctrl = autoload(path.join(ROOTPATH, '/controllers'))
 
 // ----------------------------------------

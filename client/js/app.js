@@ -3,7 +3,7 @@
 /* global alertsData */
 
 import jQuery from 'jquery'
-import _ from 'lodash'
+//import _ from 'lodash'
 import Sticky from 'sticky-js'
 import io from 'socket.io-client'
 import Alerts from './components/alerts.js'

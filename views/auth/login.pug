@@ -6,19 +6,19 @@ html(data-logic='login')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='theme-color', content='#009688')
     meta(name='msapplication-TileColor', content='#009688')
-    meta(name='msapplication-TileImage', content='/favicons/ms-icon-144x144.png')
+    meta(name='msapplication-TileImage', content=appconfig.baseUrl + '/favicons/ms-icon-144x144.png')
     title= appconfig.title
 
     // Favicon
     each favsize in [57, 60, 72, 76, 114, 120, 144, 152, 180]
-      link(rel='apple-touch-icon', sizes=favsize + 'x' + favsize, href='/favicons/apple-icon-' + favsize + 'x' + favsize + '.png')
-    link(rel='icon', type='image/png', sizes='192x192', href='/favicons/android-icon-192x192.png')
+      link(rel='apple-touch-icon', sizes=favsize + 'x' + favsize, href=appconfig.baseUrl + '/favicons/apple-icon-' + favsize + 'x' + favsize + '.png')
+    link(rel='icon', type='image/png', sizes='192x192', href=appconfig.baseUrl + '/favicons/android-icon-192x192.png')
     each favsize in [32, 96, 16]
-      link(rel='icon', type='image/png', sizes=favsize + 'x' + favsize, href='/favicons/favicon-' + favsize + 'x' + favsize + '.png')
-    link(rel='manifest', href='/manifest.json')
+      link(rel='icon', type='image/png', sizes=favsize + 'x' + favsize, href=appconfig.baseUrl + '/favicons/favicon-' + favsize + 'x' + favsize + '.png')
+    link(rel='manifest', href=appconfig.baseUrl + '/manifest.json')
 
     // JS / CSS
-    script(type='text/javascript', src='/js/bundle.min.js')
+    script(type='text/javascript', src=appconfig.baseUrl + '/js/bundle.min.js')
 
   body
     #bg
@@ -33,7 +33,7 @@ html(data-logic='login')
           = appflash[0].title
         h4= appflash[0].message
       if appconfig.auth.local.enabled
-        form(method='post', action='/login')
+        form(method='post', action=appconfig.baseUrl + '/login')
           input#login-user(type='text', name='email', placeholder='Email / Username')
           input#login-pass(type='password', name='password', placeholder='Password')
           button(type='submit') Log In
