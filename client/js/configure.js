@@ -150,7 +150,8 @@ jQuery(document).ready(function ($) {
       proceedToConsiderations: function (ev) {
         this.considerations = {
           https: !_.startsWith(this.conf.host, 'https'),
-          port: false, // TODO
+          port: false, // TODO id:11
+                       // https://github.com/robbynshaw/wiki/issues/12
           localhost: _.includes(this.conf.host, 'localhost')
         }
         this.state = 'considerations'
